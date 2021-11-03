@@ -16,13 +16,6 @@
     </style>
 
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
-
-    <style name="home_tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">16sp</item>
-    </style>
-
     <style name="Base.Widget.TextView" parent="android:Widget.TextView">
         <item name="android:hyphenationFrequency" tools:targetApi="m">normal</item>
     </style>

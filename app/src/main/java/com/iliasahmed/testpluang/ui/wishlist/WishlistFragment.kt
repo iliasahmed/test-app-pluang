@@ -8,12 +8,14 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.iliasahmed.testpluang.R
+import com.iliasahmed.testpluang.data.PreferenceRepository
 import com.iliasahmed.testpluang.databinding.FragmentWishlistBinding
 import com.iliasahmed.testpluang.model.QuotesModel
 import com.iliasahmed.testpluang.ui.base.BaseFragment
 import com.iliasahmed.testpluang.utils.ViewDialog
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -21,6 +23,9 @@ class WishlistFragment :  BaseFragment<FragmentWishlistBinding, WishListViewMode
     WishListViewModel::class.java,
     R.layout.fragment_wishlist
 ) {
+
+    @Inject lateinit var preferenceRepository: PreferenceRepository
+
     private var wishLists = ArrayList<QuotesModel>()
     private var adapter: WishListAdapter? = null
     private var manager: LinearLayoutManager? = null
@@ -61,7 +66,7 @@ class WishlistFragment :  BaseFragment<FragmentWishlistBinding, WishListViewMode
             WishListAdapter.WishListListener {
             override fun checkEmpty() {}
             override fun delete(sid: String) {
-                viewModel.deleteItemFromWishlist(sid)
+                viewModel.deleteItemFromWishlist("${preferenceRepository.email}_$sid")
             }
         })
         binding.recycle.adapter = adapter

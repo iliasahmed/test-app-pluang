@@ -11,12 +11,14 @@ import javax.inject.Inject
 import com.google.android.gms.tasks.OnFailureListener
 
 import com.google.android.gms.tasks.OnSuccessListener
-
-
+import com.iliasahmed.testpluang.data.PreferenceRepository
 
 
 @HiltViewModel
 class WishListViewModel @Inject constructor(db: FirebaseFirestore) : ViewModel() {
+
+    @Inject lateinit var preferenceRepository: PreferenceRepository
+
     var liveList = MutableLiveData<ArrayList<QuotesModel>>()
     var list = ArrayList<QuotesModel>()
     private var db: FirebaseFirestore = db
@@ -25,6 +27,7 @@ class WishListViewModel @Inject constructor(db: FirebaseFirestore) : ViewModel()
     fun loadData(){
         list.clear()
         db.collection("quotes")
+            .whereEqualTo("email", preferenceRepository.email)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {

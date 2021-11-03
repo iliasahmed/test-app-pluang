@@ -45,9 +45,7 @@ public abstract class BaseActivity<DATA_BINDING extends ViewDataBinding, VIEW_MO
     }
 
     public void adjustFontScale(Configuration configuration) {
-
         try {
-
             configuration.fontScale = (float) 1.05;
             DisplayMetrics metrics = getResources().getDisplayMetrics();
             WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
@@ -66,7 +64,7 @@ public abstract class BaseActivity<DATA_BINDING extends ViewDataBinding, VIEW_MO
                 getWindow().setStatusBarColor(Color.BLACK);
             }
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -95,7 +93,7 @@ public abstract class BaseActivity<DATA_BINDING extends ViewDataBinding, VIEW_MO
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 9187) {
-            if (resultCode == RESULT_OK) { // Activity.RESULT_OK
+            if (resultCode == RESULT_OK) {
                 finish();
                 startActivity(getIntent());
             }

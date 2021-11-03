@@ -10,6 +10,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
+import com.iliasahmed.testpluang.R;
 import com.iliasahmed.testpluang.data.PreferenceRepository;
 
 import javax.inject.Singleton;
@@ -52,7 +53,7 @@ public class AppModule {
     @Singleton
     GoogleSignInOptions provideGoogleSignInOptions(Context context){
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("677189332969-1u11drj7uk3atq473ca3q10liop00poo.apps.googleusercontent.com")
+                .requestIdToken(context.getResources().getString(R.string.web_api_key))
                 .requestEmail()
                 .build();
         return gso;
@@ -71,5 +72,4 @@ public class AppModule {
         FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
         return mFirebaseAuth;
     }
-
 }

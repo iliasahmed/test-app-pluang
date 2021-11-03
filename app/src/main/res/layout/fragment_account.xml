@@ -13,6 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="@color/white"
+            android:elevation="10dp"
             app:title="@string/account" />
 
         <LinearLayout
@@ -87,6 +88,7 @@
                     android:paddingRight="15dp"
                     android:paddingBottom="5dp"
                     android:text="@string/logout"
+                    android:backgroundTint="@color/green"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 

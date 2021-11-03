@@ -39,7 +39,6 @@ class HomeViewModel @Inject constructor(
                 response: CommonSuccessResponse<List<QuotesModel>?>?,
                 statusCode: Int
             ) {
-                Log.e("==========", "++++++++++");
                 liveList.value = response!!.data
             }
 
@@ -64,7 +63,7 @@ class HomeViewModel @Inject constructor(
             data["date"] = item.value.date
             data["close"] = item.value.close
             preferenceRepository!!.email.also { data["email"] = it!! }
-            db.collection("quotes").document(item.value.sid)
+            db.collection("quotes").document("${preferenceRepository!!.email}_${item.value.sid}")
                 .set(data)
                 .addOnSuccessListener(OnSuccessListener<Void?> {
                     Log.d(

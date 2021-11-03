@@ -11,26 +11,18 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth.*
+import com.google.firebase.auth.GoogleAuthProvider
 import com.iliasahmed.testpluang.R
+import com.iliasahmed.testpluang.controller.AppController
 import com.iliasahmed.testpluang.data.PreferenceRepository
 import com.iliasahmed.testpluang.databinding.ActivityMainBinding
 import com.iliasahmed.testpluang.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
-import com.google.firebase.auth.GoogleAuthProvider
-
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuth.*
-import com.iliasahmed.testpluang.controller.AppController
-import com.iliasahmed.testpluang.model.UserModel
-import com.google.android.gms.tasks.OnCompleteListener
-
-
-
-
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
@@ -97,30 +89,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
                 )
             }
             return@setOnItemSelectedListener false
-
-//        binding!!.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-//            if (item.itemId === R.id.accountFragment) {
-//                if (navController == null) return@setOnNavigationItemSelectedListener false
-//                navController!!.navigate(R.id.action_homeFragment_to_accountFragment)
-////                if (preferenceRepository.getToken().equals("")) startActivity(
-////                    Intent(
-////                        this@MainActivity,
-////                        SignInActivity::class.java
-////                    )
-////                ) else return@setOnNavigationItemSelectedListener NavigationUI.onNavDestinationSelected(
-////                    item,
-////                    navController!!
-////                )
-//                return@setOnNavigationItemSelectedListener false
-//            } else if (item.itemId === R.id.homeFragment) {
-//                navController!!.navigate(R.id.action_homeFragment_Pop)
-//                return@setOnNavigationItemSelectedListener false
-//            } else return@setOnNavigationItemSelectedListener NavigationUI.onNavDestinationSelected(
-//                item,
-//                navController!!
-//            )
-
-
         }
 
     }
@@ -134,7 +102,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
@@ -172,9 +139,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
                     }
 
                     if (wishSelected){
-                        navController!!.navigate(R.id.action_homeFragment_to_wishlistFragment)
+                        if (navController != null)
+                            navController!!.navigate(R.id.action_homeFragment_to_wishlistFragment)
                     }else if (accountSelected){
-                        navController!!.navigate(R.id.action_homeFragment_to_accountFragment)
+                        if (navController != null)
+                            navController!!.navigate(R.id.action_homeFragment_to_accountFragment)
                     }
 
                 } else {

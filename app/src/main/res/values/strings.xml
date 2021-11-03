@@ -4,7 +4,6 @@
     <string name="wish_list">Wishlist</string>
     <string name="account">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="networkError">No Internet!</string>
     <string name="requestTimeOutError">Request time out!</string>
     <string name="unknownError">Something went wrong!</string>
@@ -14,7 +13,7 @@
     <string name="price">Price</string>
     <string name="closing_price">Closing Price</string>
     <string name="volume">Volume</string>
-    <string name="title_activity_maps">MapsActivity</string>
     <string name="logout">Logout</string>
     <string name="add_to_wishlist">Add to Wishlist</string>
+    <string name="web_api_key">677189332969-1u11drj7uk3atq473ca3q10liop00poo.apps.googleusercontent.com</string>
 </resources>

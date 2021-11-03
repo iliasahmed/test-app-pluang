@@ -64,11 +64,6 @@ public abstract class BaseFragment<DATA_BINDING extends ViewDataBinding, VIEW_MO
         liveEventsObservers();
     }
 
-    protected View.OnClickListener backPressClickListener = view -> {
-        if (getActivity() != null)
-            getActivity().onBackPressed();
-    };
-
     protected abstract void initViews();
 
     protected abstract void liveEventsObservers();

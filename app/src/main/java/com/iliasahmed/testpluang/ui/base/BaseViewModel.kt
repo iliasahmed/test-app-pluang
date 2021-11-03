@@ -19,8 +19,8 @@ open class BaseViewModel : ViewModel {
         preferenceRepository: PreferenceRepository?
     ) {
         this.savedStateHandle = savedStateHandle
-        this.apiRepository = apiRepository
-        this.preferenceRepository = preferenceRepository
+        apiRepository.also { this.apiRepository = it }
+        preferenceRepository.also { this.preferenceRepository = it }
     }
 
     override fun onCleared() {

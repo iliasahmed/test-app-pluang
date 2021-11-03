@@ -1,6 +1,6 @@
 package com.iliasahmed.testpluang.model
 
-data class QuotesModel (
+data class QuotesModel(
     val sid: String,
     val price: Double,
     val close: Double,

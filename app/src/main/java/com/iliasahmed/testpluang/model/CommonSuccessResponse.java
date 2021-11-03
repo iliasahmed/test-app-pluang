@@ -9,7 +9,7 @@ public class CommonSuccessResponse<T> {
     @Expose
     private Boolean success;
 
-    @SerializedName(value = "data", alternate = "results")
+    @SerializedName(value = "data")
     @Expose
     private T data;
 
