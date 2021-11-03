@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.TestForPluang" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:textViewStyle">@style/Base.Widget.TextView</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="backgroundColor">@color/white</item>
+        <item name="materialButtonStyle">@style/DefaultButtonStyle</item>
+        <item name="android:buttonStyle">@style/DefaultButtonStyle</item>
+        <item name="actionBarTheme">@style/MyActionBar</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <style name="home_tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Base.Widget.TextView" parent="android:Widget.TextView">
+        <item name="android:hyphenationFrequency" tools:targetApi="m">normal</item>
+    </style>
+
+    <style name="DefaultButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@null</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+</resources>
